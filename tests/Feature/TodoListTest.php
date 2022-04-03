@@ -14,12 +14,14 @@ class TodoListTest extends TestCase
     public function test_index_todo_list()
     {
         // preparation / prepare
-        TodoList::create(['name' => 'my list']);
+        // TodoList::create(['name' => 'my list']);
+        TodoList::factory()->create(['name' => 'my list']);
 
         // action /perform
         $response = $this->getJson(route('todo-list.index'));
 
         // assertion / predict
         $this->assertEquals(1, count($response->json()));
+        $this->assertEquals('my list', $response->json()[0]['name']);
     }
 }
