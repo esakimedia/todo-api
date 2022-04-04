@@ -12,7 +12,7 @@ class LoginTest extends TestCase
 
     public function test_a_user_can_login_with_email_and_password()
     {
-        $user = User::factory()->create();
+        $user = $this->createUser();
 
         $response = $this->postJson(route('user.login'), [
             'email' => $user->email,
