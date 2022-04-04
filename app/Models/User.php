@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Label;
 use App\Models\TodoList;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -47,5 +48,10 @@ class User extends Authenticatable
     public function todo_lists(): HasMany
     {
         return $this->hasMany(TodoList::class);
+    }
+
+    public function labels(): HasMany
+    {
+        return $this->hasMany(Label::class);
     }
 }
